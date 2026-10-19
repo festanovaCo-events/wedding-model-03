@@ -1,8 +1,8 @@
 # Festanova invite template
 
-Plantilla Angular para crear un modelo nuevo de invitación. La plataforma (confirmación, API, layout y motor de temas) ya está. El diseño visual vive en `src/app/features/model` y en los assets base.
+Plantilla Angular para crear un modelo nuevo de invitación. La plataforma (confirmación, API, layout y motor de temas) ya está. El diseño visual vive en `src/app/components`, `src/app/pages`, `src/app/constants` y en los assets base.
 
-`features/shared` se copió de `wedding-model-02` al crear esta carpeta. Un arreglo posterior de confirmación no llega solo a los otros repos: hay que portarlo a mano.
+`shared` se copió de `wedding-model-02` al crear esta carpeta. Un arreglo posterior de confirmación no llega solo a los otros repos: hay que portarlo a mano.
 
 ## Copiar esta carpeta
 
@@ -35,7 +35,7 @@ Para agregar otra paleta, sigue [docs/sistema-temas-template.md](docs/sistema-te
 
 ## Contenido de la invitación
 
-Textos, fechas y lugares salen de `src/app/features/shared/constants/wedding-info.ts`. Los textos propios del diseño salen de `src/app/features/model/constants/model-info.ts`.
+Textos, fechas y lugares salen de `src/app/shared/constants/wedding-info.ts`. Los textos propios del diseño salen de `src/app/constants/model-info.ts`.
 
 Las imágenes y animaciones del modelo se declaran en `theme.types.ts` (`ThemeAssets` y `ThemeAnimations`). El starter trae portada, un SVG y los Lottie `heart`, `heart_pulse` y `music`. Si el diseño nuevo necesita otra decoración, agrega el campo al tipo, a `theme-assets.ts` y al mapa de color.
 
@@ -47,6 +47,15 @@ npm start
 ```
 
 La app queda en `http://localhost:4200/`.
+
+## Conventional Commits
+
+Los mensajes de commit siguen [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, etc.).
+
+- Local: husky + commitlint en `commit-msg` (se puede saltar con `--no-verify`).
+- Remoto: el workflow [`.github/workflows/commitlint.yml`](.github/workflows/commitlint.yml) valida los commits de cada PR.
+
+Para que el merge a `main` quede bloqueado si falla: en GitHub → **Settings → Branches** → protege `main` → **Require status checks to pass** → marca el check `commitlint`.
 
 ## Publicar
 

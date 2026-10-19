@@ -13,7 +13,8 @@
     "build": "NG_BUILD_MAX_WORKERS=1 ng build --configuration production",
     "optimize-video": "bash scripts/optimize-video.sh",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prepare": "husky"
   },
   "private": true,
   "allowScripts": {
@@ -52,8 +53,11 @@
     "@angular-devkit/build-angular": "^18.2.21",
     "@angular/cli": "^18.2.21",
     "@angular/compiler-cli": "^18.2.14",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
     "@types/jasmine": "~5.1.15",
     "autoprefixer": "^10.4.24",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.13.0",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
