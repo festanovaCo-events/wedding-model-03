@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+/* Arena cálida: contraste con el cierre verde, sin negro. */
+.m03-site-footer {
+  background: #e8e2d6;
+}
+
+.m03-site-footer__text {
+  margin: 0;
+  color: #3d4a3d;
+  letter-spacing: 0.02em;
+}

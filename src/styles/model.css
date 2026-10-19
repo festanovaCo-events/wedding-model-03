@@ -1,5 +1,5 @@
-.model-page,
-.m03-page {
+/* Tokens on html so siblings of .m03-page (p. ej. footer) pueden resolverlos. */
+html:has(.m03-page) {
   --m03-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --m03-sans: 'Outfit', 'Open Sans', sans-serif;
   --m03-script: 'Great Vibes', cursive;
@@ -10,24 +10,40 @@
   --m03-ink: #1f2a27;
   --m03-muted: #7a847f;
 
+  /* Mismo fondo exterior que model-01/02 */
+  background: #ecebe6;
+}
+
+/* Shell como model-01/02: 100% en móvil, tope 1280px, página blanca. */
+.model-page,
+.m03-page {
   width: 100%;
-  max-width: 430px;
+  max-width: 1280px;
   margin: 0 auto;
-  background: var(--m03-cream);
+  background: #fff;
   color: var(--m03-ink);
   overflow-x: clip;
   font-family: var(--m03-sans);
 }
 
-html:has(.m03-page) {
-  background: var(--m03-green-deep);
+/* Hosts en bloque: evita el hueco/línea blanca entre secciones y el footer. */
+app-model-page,
+.m03-page > *,
+html:has(.m03-page) app-footer {
+  display: block;
 }
 
+.m03-closing {
+  margin-bottom: 0;
+}
+
+/* Footer global: mismo tope de ancho que la página (color en el componente). */
 html:has(.m03-page) app-footer > footer {
   width: 100%;
-  max-width: 430px;
+  max-width: 1280px;
   margin-inline: auto;
-  background: var(--m03-green-deep);
+  border-top: 0;
+  box-shadow: none;
 }
 
 .m03-section {
@@ -194,11 +210,11 @@ html:has(.m03-page) app-footer > footer {
 }
 
 .m03-s-wave--top {
-  top: -2px;
+  top: -6px;
 }
 
 .m03-s-wave--bottom {
-  bottom: -2px;
+  bottom: -6px;
   height: clamp(88px, 18vw, 120px);
 }
 
@@ -225,16 +241,17 @@ html:has(.m03-page) app-footer > footer {
 
 /* Hero */
 .m03-hero {
-  background: transparent;
+  /* Sin padding: el fondo blanco de la página se veía como borde. */
+  background: var(--m03-green);
   color: var(--m03-cream);
-  padding: 0.55rem;
+  padding: 0;
 }
 
 .m03-hero__frame {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(201, 168, 76, 0.9);
-  border-radius: 18px;
+  border-radius: 0;
   /* Mismo verde sólido que las olas y el bloque del play */
   background:
     repeating-linear-gradient(
@@ -243,7 +260,7 @@ html:has(.m03-page) app-footer > footer {
       rgba(255, 255, 255, 0.015) 17px 18px
     ),
     var(--m03-green);
-  box-shadow: inset 0 0 0 1px rgba(201, 168, 76, 0.2);
+  box-shadow: none;
 }
 
 .m03-hero__intro {
@@ -543,11 +560,24 @@ html:has(.m03-page) app-footer > footer {
   line-height: 1;
 }
 
-/* Events */
+/* Events — Ceremony + Reception en una sola fila */
 .m03-events {
   display: grid;
-  gap: 2.4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
   margin-top: 0.35rem;
+  align-items: start;
+}
+
+.m03-event {
+  min-width: 0;
+  text-align: center;
+}
+
+.m03-event .m03-btn {
+  margin-top: 1rem;
+  padding-inline: 1rem;
+  max-width: 100%;
 }
 
 .m03-event__icon {
@@ -785,10 +815,11 @@ html:has(.m03-page) app-footer > footer {
 /* Guest info */
 .m03-guest__list {
   list-style: none;
-  margin: 0.2rem 0 0;
+  margin: 0.2rem auto 0;
   padding: 0;
   display: grid;
   gap: 1.55rem;
+  width: min(100%, 26rem);
   text-align: left;
 }
 
@@ -797,6 +828,8 @@ html:has(.m03-page) app-footer > footer {
   grid-template-columns: 44px 1fr;
   gap: 0.9rem;
   align-items: start;
+  justify-self: center;
+  width: 100%;
 }
 
 .m03-guest__icon {
@@ -972,11 +1005,142 @@ html:has(.m03-page) app-footer > footer {
   }
 }
 
+/* Breakpoint principal compartido con model-01/02 (Tailwind md). */
 @media (min-width: 768px) {
-  .model-page,
-  .m03-page,
-  html:has(.m03-page) app-footer > footer {
-    max-width: 460px;
+  .m03-section {
+    padding: 3.75rem 2.25rem 3.25rem;
+  }
+
+  .m03-section__title {
+    font-size: 2.05rem;
+  }
+
+  .m03-heading__leaf {
+    width: 34px;
+  }
+
+  .m03-flourish {
+    width: 76px;
+  }
+
+  .m03-hero__intro {
+    padding: 5.4rem 2rem 3rem;
+  }
+
+  .m03-monogram {
+    width: 128px;
+    height: 118px;
+  }
+
+  .m03-monogram__letters {
+    font-size: 1.6rem;
+  }
+
+  .m03-hero__kicker {
+    font-size: 0.74rem;
+  }
+
+  .m03-hero__names {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+  }
+
+  .m03-hero__date {
+    font-size: 1.25rem;
+  }
+
+  .m03-hero__weekday {
+    font-size: 0.72rem;
+  }
+
+  .m03-hero__photo {
+    min-height: min(78vh, 820px);
+    height: min(78vh, 820px);
+  }
+
+  .m03-hero__player-float {
+    width: min(420px, calc(100% - 2rem));
+    bottom: clamp(10rem, 18vw, 12.5rem);
+  }
+
+  .m03-hero__outro {
+    padding: 10.5rem 2rem 5rem;
+  }
+
+  .m03-player {
+    max-width: 340px;
+  }
+
+  .m03-dress {
+    padding-top: 2rem;
+    padding-bottom: 3.8rem;
+  }
+
+  .m03-dress__label {
+    font-size: 2.85rem;
+  }
+
+  .m03-gifts__text {
+    max-width: 36ch;
+    font-size: 1rem;
+  }
+
+  .m03-rsvp__title {
+    font-size: 4.2rem;
+  }
+
+  .m03-rsvp__text {
+    max-width: 32ch;
+    font-size: 0.82rem;
+  }
+
+  .m03-quote {
+    padding-top: 1.6rem;
+    padding-bottom: 3rem;
+  }
+
+  .m03-quote p {
+    max-width: 36ch;
+    font-size: 1.25rem;
+  }
+
+  .m03-closing__thanks {
+    font-size: 2.05rem;
+  }
+
+  .m03-closing__with {
+    font-size: 2.55rem;
+  }
+
+  .m03-closing__names {
+    font-size: 1.35rem;
+  }
+
+  .m03-closing__card {
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}
+
+/* Aire extra en desktop ancho (mismo umbral que m01 instructions/lg). */
+@media (min-width: 1024px) {
+  .m03-section {
+    padding: 4.25rem 3rem 3.75rem;
+  }
+
+  .m03-hero__intro {
+    padding: 6rem 3rem 3.4rem;
+  }
+
+  .m03-hero__outro {
+    padding: 11rem 3rem 5.5rem;
+  }
+
+  .m03-closing {
+    padding: 0 1.5rem 2.2rem;
+  }
+
+  .m03-closing__card {
+    max-width: 560px;
   }
 }
 
