@@ -1,0 +1,17 @@
+<section class="m03-section m03-section--green m03-gifts">
+  <img class="m03-leaf m03-leaf--gifts-left" [src]="leaf" alt="" aria-hidden="true" />
+  <img class="m03-leaf m03-leaf--gifts-right" [src]="leaf" alt="" aria-hidden="true" />
+
+  <div class="m03-gifts__icon" aria-hidden="true">
+    <hugeicons-icon [icon]="GiftIcon" [size]="42" color="currentColor" [strokeWidth]="1.35" />
+  </div>
+
+  <h2 class="m03-section__title m03-section__title--light">{{ gifts.title }}</h2>
+  <img class="m03-flourish" [src]="flourish" alt="" aria-hidden="true" />
+  <p class="m03-gifts__text">{{ gifts.description }}</p>
+
+  <div class="m03-gifts__qr">
+    <img [src]="qr" [alt]="gifts.scanLabel" />
+  </div>
+  <p class="m03-gifts__scan">{{ gifts.scanLabel }}</p>
+</section>

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { MODEL_IDENTITY } from './features/shared/constants/model-identity';
-import { ACTIVE_THEME } from './features/shared/themes/active-theme';
+import { MODEL_IDENTITY } from './shared/constants/model-identity';
+import { ACTIVE_THEME } from './shared/themes/active-theme';
 
 describe('AppComponent', () => {
   beforeEach(async () => {

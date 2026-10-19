@@ -1,0 +1,60 @@
+<div class="m03-player" aria-label="Reproductor de música">
+  <div class="m03-player__card">
+    <p class="m03-player__title">{{ music.title }}</p>
+    <p class="m03-player__artist">{{ music.artist }}</p>
+
+    <div
+      class="m03-player__progress"
+      (click)="onSeek($event)"
+      role="slider"
+      [attr.aria-valuenow]="progress"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      tabindex="0"
+    >
+      <span class="m03-player__progress-fill" [style.width.%]="progress"></span>
+      <span class="m03-player__knob" [style.left.%]="progress"></span>
+    </div>
+
+    <div class="m03-player__times">
+      <span>{{ formatTime(currentTime) }}</span>
+      <span>{{ formatTime(duration) || '0:00' }}</span>
+    </div>
+
+    <div class="m03-player__controls">
+      <button
+        type="button"
+        class="m03-player__icon"
+        (click)="skipBack()"
+        aria-label="Retroceder 10 segundos"
+      >
+        <hugeicons-icon [icon]="PreviousIcon" [size]="18" color="currentColor" [strokeWidth]="1.6" />
+      </button>
+      <button
+        type="button"
+        class="m03-player__play"
+        (click)="toggle()"
+        [attr.aria-label]="playing ? 'Pausar música' : 'Reproducir música'"
+      >
+        @if (playing) {
+          <hugeicons-icon [icon]="PauseIcon" [size]="20" color="currentColor" [strokeWidth]="1.8" />
+        } @else {
+          <hugeicons-icon [icon]="PlayIcon" [size]="20" color="currentColor" [strokeWidth]="1.8" />
+        }
+      </button>
+      <button
+        type="button"
+        class="m03-player__icon"
+        (click)="skipForward()"
+        aria-label="Adelantar 10 segundos"
+      >
+        <hugeicons-icon [icon]="NextIcon" [size]="18" color="currentColor" [strokeWidth]="1.6" />
+      </button>
+    </div>
+  </div>
+
+  <p class="m03-player__hint">
+    {{ hint }}
+  </p>
+  <span class="m03-player__heart" aria-hidden="true">♡</span>
+</div>

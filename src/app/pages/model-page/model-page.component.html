@@ -1,0 +1,26 @@
+<div class="model-page m03-page">
+  <app-model-hero />
+  <app-model-events />
+  <app-model-gifts />
+  <app-model-rsvp />
+  <app-model-closing />
+</div>
+
+<app-modal [show]="showConfirmationGuide" (close)="closeGuide()">
+  <div class="flex flex-col items-center p-6 text-center">
+    <h2 class="font-cookie text-3xl text-heading">{{ guide.title }}</h2>
+    <p class="mt-3 max-w-sm text-sm text-theme-text">
+      {{ guide.text }}
+    </p>
+    <button
+      type="button"
+      class="mt-6 rounded-full bg-primary px-6 py-3 font-semibold text-white"
+      (click)="openConfirmation()"
+    >
+      {{ guide.confirmButton }}
+    </button>
+    <button type="button" class="mt-3 text-sm text-muted" (click)="closeGuide()">
+      {{ guide.laterButton }}
+    </button>
+  </div>
+</app-modal>

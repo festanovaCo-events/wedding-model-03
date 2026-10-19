@@ -1,0 +1,26 @@
+@if (view$ | async; as view) {
+  <section class="m03-section m03-section--green m03-rsvp">
+    <img class="m03-leaf m03-leaf--rsvp-left" [src]="leaf" alt="" aria-hidden="true" />
+    <img class="m03-leaf m03-leaf--rsvp-right" [src]="leaf" alt="" aria-hidden="true" />
+
+    @if (view.isConfirmed) {
+      <app-confirmation-status [invitationData]="view.invitationData" />
+    } @else if (view.isDeclined) {
+      <app-declined-status />
+    } @else if (view.error) {
+      <app-error-status [error]="view.error" />
+    } @else {
+      <h2 class="m03-rsvp__title">{{ info.title }}</h2>
+      <img class="m03-flourish" [src]="flourish" alt="" aria-hidden="true" />
+      <p class="m03-rsvp__text">
+        {{ info.text }}
+        <strong>{{ info.deadline }}</strong>
+      </p>
+      <button type="button" class="m03-btn m03-btn--outline m03-btn--pill" (click)="openConfirmation()">
+        {{ info.buttonText }}
+      </button>
+    }
+  </section>
+}
+
+<app-confirmation-modal-host [show]="isConfirmationModalVisible" (close)="closeConfirmationModal()" />

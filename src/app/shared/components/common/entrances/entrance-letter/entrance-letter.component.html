@@ -1,0 +1,55 @@
+<div class="entrance-overlay" [@.disabled]="reduceMotion" (click)="onBackdrop()">
+  <div class="curtain" [class.is-open]="phase === 'open'">
+    <div class="reveal" [class.is-visible]="phase === 'open'">
+      <div class="reveal-crest" aria-hidden="true">
+        <img src="assets/images/wreath.png" alt="" />
+        <span>{{ wifeName.charAt(0) }} / {{ husbandName.charAt(0) }}</span>
+      </div>
+      <p class="reveal-kicker">Bienvenidos</p>
+      <p class="reveal-names">
+        <span class="name">{{ wifeName }}</span>
+        <span class="ampersand">&</span>
+        <span class="name">{{ husbandName }}</span>
+      </p>
+      <span class="reveal-rule" aria-hidden="true"></span>
+      <p class="reveal-date">{{ dateLabel }}</p>
+      <p class="reveal-note" *ngIf="phase === 'open'">{{ hint }}</p>
+      <div *ngIf="phase === 'open'" class="actions" @actions>
+        <button type="button" class="enter-button" (click)="enter(true)">
+          INGRESAR CON MÚSICA
+        </button>
+        <button type="button" class="enter-button enter-button--ghost" (click)="enter(false)">
+          INGRESAR SIN MÚSICA
+        </button>
+      </div>
+    </div>
+
+    <div class="panel panel-left" [@panelLeft]="phase" aria-hidden="true">
+      <span class="seal-half seal-half-left">
+        <img class="crest-frame" src="assets/images/sello-lacre.png" alt="" />
+      </span>
+    </div>
+    <div class="panel panel-right" [@panelRight]="phase" aria-hidden="true">
+      <span class="seal-half seal-half-right">
+        <img class="crest-frame" src="assets/images/sello-lacre.png" alt="" />
+      </span>
+    </div>
+
+    <button
+      type="button"
+      class="seal-button"
+      [class.is-shaking]="nudge === 'shake'"
+      [class.is-open]="phase === 'open'"
+      (animationend)="onNudgeDone()"
+      [disabled]="phase !== 'sealed' || !ready"
+      [attr.aria-label]="phase === 'sealed' ? 'Abrir la invitación' : null"
+      (click)="open(); $event.stopPropagation()"
+    >
+      <img class="crest-frame" src="assets/images/sello-lacre.png" alt="" />
+    </button>
+
+    <p class="tap" [class.is-gone]="phase === 'open'" [attr.aria-hidden]="phase === 'open'">
+      {{ ready ? 'Toca para abrir' : 'Preparando tu invitación' }}
+    </p>
+  </div>
+</div>

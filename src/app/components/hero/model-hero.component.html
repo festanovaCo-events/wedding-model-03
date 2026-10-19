@@ -1,0 +1,91 @@
+<section class="m03-hero">
+  <div class="m03-hero__frame">
+    <div class="m03-hero__intro">
+      <div class="m03-monogram" aria-hidden="true">
+        <img class="m03-monogram__wreath" [src]="info.images.wreath" alt="" />
+        <span class="m03-monogram__letters">{{ info.hero.monogram }}</span>
+      </div>
+
+      <p class="m03-hero__kicker">{{ info.hero.kicker }}</p>
+      <h1 class="m03-hero__names">
+        <span>{{ info.hero.brideName }}</span>
+        <span class="m03-hero__amp">&</span>
+        <span>{{ info.hero.groomName }}</span>
+      </h1>
+
+      <img class="m03-flourish" [src]="info.images.flourish" alt="" aria-hidden="true" />
+
+      <p class="m03-hero__date">{{ info.hero.date }}</p>
+      <p class="m03-hero__weekday">{{ info.hero.weekday }}</p>
+    </div>
+
+    <div class="m03-hero__stage">
+      <img class="m03-hero__photo" [src]="info.images.hero" [alt]="info.hero.photoAlt" />
+
+      <!-- Ola superior: verde + filete dorado con glow (S-curve) -->
+      <svg class="m03-s-wave m03-s-wave--top" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <filter id="m03GlowTop" x="-10%" y="-100%" width="120%" height="300%">
+            <feGaussianBlur stdDeviation="5" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <path
+          class="m03-s-wave__fill"
+          d="M0 0H1000V55C920 55 860 20 780 70C680 130 600 175 480 160C340 142 260 55 140 95C70 120 30 55 0 55V0Z"
+        />
+        <path
+          class="m03-s-wave__glow"
+          filter="url(#m03GlowTop)"
+          d="M0 55C30 55 70 120 140 95C260 55 340 142 480 160C600 175 680 130 780 70C860 20 920 55 1000 55"
+        />
+        <path
+          class="m03-s-wave__stroke"
+          d="M0 55C30 55 70 120 140 95C260 55 340 142 480 160C600 175 680 130 780 70C860 20 920 55 1000 55"
+        />
+      </svg>
+
+      <!-- Ola inferior -->
+      <svg class="m03-s-wave m03-s-wave--bottom" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <filter id="m03GlowBottom" x="-10%" y="-100%" width="120%" height="300%">
+            <feGaussianBlur stdDeviation="5" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <path
+          class="m03-s-wave__fill"
+          d="M0 200H1000V145C920 145 860 180 780 130C680 70 600 25 480 40C340 58 260 145 140 105C70 80 30 145 0 145V200Z"
+        />
+        <path
+          class="m03-s-wave__glow"
+          filter="url(#m03GlowBottom)"
+          d="M0 145C30 145 70 80 140 105C260 145 340 58 480 40C600 25 680 70 780 130C860 180 920 145 1000 145"
+        />
+        <path
+          class="m03-s-wave__stroke"
+          d="M0 145C30 145 70 80 140 105C260 145 340 58 480 40C600 25 680 70 780 130C860 180 920 145 1000 145"
+        />
+      </svg>
+    </div>
+
+    <!-- Flota sobre la ola y el bloque verde del outro -->
+    <div class="m03-hero__player-float">
+      <app-model-music-player />
+    </div>
+
+    <div class="m03-hero__outro">
+      <img class="m03-leaf m03-leaf--player" [src]="info.images.leaf" alt="" aria-hidden="true" />
+      <p class="m03-player__hint">{{ info.hero.musicHint }}</p>
+      <span class="m03-player__heart" aria-hidden="true">♡</span>
+    </div>
+  </div>
+</section>

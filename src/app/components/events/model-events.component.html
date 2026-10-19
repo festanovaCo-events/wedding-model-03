@@ -1,0 +1,74 @@
+<section class="m03-section m03-section--cream">
+  <div class="m03-heading">
+    <img class="m03-heading__leaf" [src]="info.images.leaf" alt="" aria-hidden="true" />
+    <h2 class="m03-section__title">{{ info.bigDay.title }}</h2>
+    <img class="m03-heading__leaf m03-heading__leaf--flip" [src]="info.images.leaf" alt="" aria-hidden="true" />
+  </div>
+  <img class="m03-flourish m03-flourish--dark" [src]="info.images.flourish" alt="" aria-hidden="true" />
+
+  <div class="m03-events">
+    <article class="m03-event">
+      <div class="m03-event__icon" aria-hidden="true">
+        <hugeicons-icon [icon]="ChurchIcon" [size]="26" color="currentColor" [strokeWidth]="1.35" />
+      </div>
+      <h3 class="m03-event__title">{{ info.bigDay.ceremony.title }}</h3>
+      <p class="m03-event__time">{{ info.bigDay.ceremony.time }}</p>
+      <p class="m03-event__place">{{ info.bigDay.ceremony.place }}</p>
+      <p class="m03-event__address">{{ info.bigDay.ceremony.address }}</p>
+      <a class="m03-btn m03-btn--pill" [href]="info.bigDay.ceremony.mapsUrl" target="_blank" rel="noopener">
+        {{ info.bigDay.ceremony.cta }}
+      </a>
+    </article>
+
+    <article class="m03-event">
+      <div class="m03-event__icon" aria-hidden="true">
+        <hugeicons-icon [icon]="UserGroupIcon" [size]="26" color="currentColor" [strokeWidth]="1.35" />
+      </div>
+      <h3 class="m03-event__title">{{ info.bigDay.reception.title }}</h3>
+      <p class="m03-event__time">{{ info.bigDay.reception.time }}</p>
+      <p class="m03-event__place">{{ info.bigDay.reception.place }}</p>
+      <p class="m03-event__address">{{ info.bigDay.reception.address }}</p>
+      <a class="m03-btn m03-btn--pill" [href]="info.bigDay.reception.mapsUrl" target="_blank" rel="noopener">
+        {{ info.bigDay.reception.cta }}
+      </a>
+    </article>
+  </div>
+</section>
+
+<section class="m03-section m03-section--cream m03-timeline-section">
+  <div class="m03-heading">
+    <img class="m03-heading__leaf" [src]="info.images.leaf" alt="" aria-hidden="true" />
+    <h2 class="m03-section__title">{{ info.timeline.title }}</h2>
+    <img class="m03-heading__leaf m03-heading__leaf--flip" [src]="info.images.leaf" alt="" aria-hidden="true" />
+  </div>
+  <img class="m03-flourish m03-flourish--dark" [src]="info.images.flourish" alt="" aria-hidden="true" />
+
+  <ol class="m03-timeline">
+    @for (item of info.timeline.items; track item.label) {
+      <li class="m03-timeline__item">
+        <span class="m03-timeline__dot" aria-hidden="true"></span>
+        <div class="m03-timeline__icon" aria-hidden="true">
+          <hugeicons-icon [icon]="timelineIcon(item.icon)" [size]="22" color="currentColor" [strokeWidth]="1.35" />
+        </div>
+        <div class="m03-timeline__body">
+          <p class="m03-timeline__time">{{ item.time }}</p>
+          <p class="m03-timeline__label">{{ item.label }}</p>
+        </div>
+      </li>
+    }
+  </ol>
+</section>
+
+<section class="m03-section m03-section--cream m03-dress">
+  <div class="m03-heading">
+    <img class="m03-heading__leaf" [src]="info.images.leaf" alt="" aria-hidden="true" />
+    <h2 class="m03-section__title">{{ info.dressCode.title }}</h2>
+    <img class="m03-heading__leaf m03-heading__leaf--flip" [src]="info.images.leaf" alt="" aria-hidden="true" />
+  </div>
+  <p class="m03-dress__label">{{ info.dressCode.label }}</p>
+  <div class="m03-dress__swatches" aria-label="Paleta sugerida">
+    @for (color of info.dressCode.colors; track color) {
+      <span class="m03-dress__swatch" [style.background]="color"></span>
+    }
+  </div>
+</section>

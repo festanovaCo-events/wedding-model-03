@@ -11,8 +11,8 @@ import { provideToastr } from 'ngx-toastr';
 
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
-import { INVITATION_API } from './features/shared/services/invitation-api';
-import { RoutedInvitationApi } from './features/shared/services/routed-invitation-api.service';
+import { INVITATION_API } from './shared/services/invitation-api';
+import { RoutedInvitationApi } from './shared/services/routed-invitation-api.service';
 
 const CLOUDINARY_CLOUD = environment.cloudinaryCloud;
 

@@ -26,7 +26,7 @@ function writeModelIdentityModule(identity) {
 };
 `;
   writeFileSync(
-    path.join(rootDir, 'src', 'app', 'features', 'shared', 'constants', 'model-identity.ts'),
+    path.join(rootDir, 'src', 'app', 'shared', 'constants', 'model-identity.ts'),
     contents
   );
 }

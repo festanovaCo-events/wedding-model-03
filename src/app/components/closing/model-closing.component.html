@@ -1,0 +1,64 @@
+<section class="m03-section m03-section--cream m03-guest">
+  <div class="m03-heading">
+    <img class="m03-heading__leaf" [src]="info.images.leaf" alt="" aria-hidden="true" />
+    <h2 class="m03-section__title">{{ info.guestInfo.title }}</h2>
+    <img class="m03-heading__leaf m03-heading__leaf--flip" [src]="info.images.leaf" alt="" aria-hidden="true" />
+  </div>
+  <img class="m03-flourish m03-flourish--dark" [src]="info.images.flourish" alt="" aria-hidden="true" />
+
+  <ul class="m03-guest__list">
+    <li class="m03-guest__item">
+      <div class="m03-guest__icon" aria-hidden="true">
+        <hugeicons-icon [icon]="Bus01Icon" [size]="20" color="currentColor" [strokeWidth]="1.35" />
+      </div>
+      <div>
+        <h3>{{ info.guestInfo.transportation.title }}</h3>
+        <p>{{ info.guestInfo.transportation.text }}</p>
+      </div>
+    </li>
+    <li class="m03-guest__item">
+      <div class="m03-guest__icon" aria-hidden="true">
+        <hugeicons-icon [icon]="Hotel01Icon" [size]="20" color="currentColor" [strokeWidth]="1.35" />
+      </div>
+      <div>
+        <h3>{{ info.guestInfo.accommodations.title }}</h3>
+        <p>{{ info.guestInfo.accommodations.text }}</p>
+      </div>
+    </li>
+    <li class="m03-guest__item">
+      <div class="m03-guest__icon" aria-hidden="true">
+        <hugeicons-icon [icon]="Camera01Icon" [size]="20" color="currentColor" [strokeWidth]="1.35" />
+      </div>
+      <div>
+        <h3>{{ info.guestInfo.capture.title }}</h3>
+        <p class="m03-guest__hashtag">{{ info.guestInfo.capture.text }}</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="m03-section m03-section--cream m03-quote">
+  <span class="m03-quote__mark" aria-hidden="true">“</span>
+  <p>{{ info.quote }}</p>
+  <span class="m03-quote__mark m03-quote__mark--end" aria-hidden="true">”</span>
+</section>
+
+<section class="m03-closing">
+  <div class="m03-closing__top">
+    <h2 class="m03-closing__thanks">{{ info.closing.thankYou }}</h2>
+    <img class="m03-flourish" [src]="info.images.flourish" alt="" aria-hidden="true" />
+  </div>
+
+  <div class="m03-closing__card">
+    <img
+      class="m03-closing__photo"
+      [src]="info.images.footer"
+      [alt]="info.closing.photoAlt"
+    />
+    <div class="m03-closing__sign">
+      <p class="m03-closing__with">{{ info.closing.signature }}</p>
+      <p class="m03-closing__names">{{ info.closing.names }}</p>
+      <span class="m03-closing__heart" aria-hidden="true">♡</span>
+    </div>
+  </div>
+</section>

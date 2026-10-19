@@ -14,7 +14,7 @@ test('resolveThemeName falls back to TEMPLATE_THEME and then default theme', () 
   const root = mkdtempSync(path.join(tmpdir(), 'theme-test-'));
 
   try {
-    mkdirSync(path.join(root, 'src', 'app', 'features', 'shared', 'themes'), { recursive: true });
+    mkdirSync(path.join(root, 'src', 'app', 'shared', 'themes'), { recursive: true });
     assert.equal(resolveThemeName(undefined, { TEMPLATE_THEME: 'starter-b' }, root), 'starter-b');
     assert.equal(resolveThemeName(undefined, {}, root), 'starter-a');
   } finally {
@@ -24,7 +24,7 @@ test('resolveThemeName falls back to TEMPLATE_THEME and then default theme', () 
 
 test('resolveThemeName preserves the generated active theme when no input is provided', () => {
   const root = mkdtempSync(path.join(tmpdir(), 'theme-test-'));
-  const themesDir = path.join(root, 'src', 'app', 'features', 'shared', 'themes');
+  const themesDir = path.join(root, 'src', 'app', 'shared', 'themes');
 
   try {
     mkdirSync(themesDir, { recursive: true });
@@ -62,11 +62,11 @@ test('writeThemeVarsCss writes palette tokens for the selected theme', () => {
   const root = mkdtempSync(path.join(tmpdir(), 'theme-test-'));
 
   try {
-    const themesDir = path.join(root, 'src', 'app', 'features', 'shared', 'themes');
+    const themesDir = path.join(root, 'src', 'app', 'shared', 'themes');
     mkdirSync(themesDir, { recursive: true });
     writeFileSync(
       path.join(themesDir, 'template-starter-a.theme.ts'),
-      readFileSync(path.join(__dirname, '../src/app/features/shared/themes/template-starter-a.theme.ts'), 'utf8')
+      readFileSync(path.join(__dirname, '../src/app/shared/themes/template-starter-a.theme.ts'), 'utf8')
     );
 
     const { writeThemeVarsCss } = require('./select-theme');
@@ -74,8 +74,8 @@ test('writeThemeVarsCss writes palette tokens for the selected theme', () => {
     const generated = readFileSync(filePath, 'utf8');
 
     assert.match(generated, /AUTO-GENERATED/);
-    assert.match(generated, /--theme-primary:\s*#5C4A3A/);
-    assert.match(generated, /--theme-primary-soft:\s*#8C735F/);
+    assert.match(generated, /--theme-primary:\s*#0B2E2A/);
+    assert.match(generated, /--theme-primary-soft:\s*#1A4A43/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -85,12 +85,12 @@ test('updateSplashFallback writes the theme primarySoft into index.html', () => 
   const root = mkdtempSync(path.join(tmpdir(), 'theme-test-'));
 
   try {
-    const themesDir = path.join(root, 'src', 'app', 'features', 'shared', 'themes');
+    const themesDir = path.join(root, 'src', 'app', 'shared', 'themes');
     const srcDir = path.join(root, 'src');
     mkdirSync(themesDir, { recursive: true });
     writeFileSync(
       path.join(themesDir, 'template-starter-a.theme.ts'),
-      readFileSync(path.join(__dirname, '../src/app/features/shared/themes/template-starter-a.theme.ts'), 'utf8')
+      readFileSync(path.join(__dirname, '../src/app/shared/themes/template-starter-a.theme.ts'), 'utf8')
     );
     writeFileSync(
       path.join(srcDir, 'index.html'),

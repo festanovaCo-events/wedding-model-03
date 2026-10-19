@@ -4,10 +4,10 @@ Las variantes de color de un mismo modelo viven en archivos de tema y en assets 
 
 ## Archivos
 
-- `src/app/features/shared/themes/theme.types.ts`: paleta fija y los huecos de assets de este modelo.
-- `src/app/features/shared/themes/template-starter-a.theme.ts` y `template-starter-b.theme.ts`: paletas de ejemplo.
-- `src/app/features/shared/themes/theme-assets.ts`: rutas e imports de los assets generados.
-- `src/app/features/shared/themes/active-theme.ts`: generado. No se edita a mano.
+- `src/app/shared/themes/theme.types.ts`: paleta fija y los huecos de assets de este modelo.
+- `src/app/shared/themes/template-starter-a.theme.ts` y `template-starter-b.theme.ts`: paletas de ejemplo.
+- `src/app/shared/themes/theme-assets.ts`: rutas e imports de los assets generados.
+- `src/app/shared/themes/active-theme.ts`: generado. No se edita a mano.
 - `scripts/select-theme.js`: elige el tema, escribe las variables CSS y llama al recoloreo.
 - `scripts/generate-theme-assets.js`: recolorea el SVG y los Lottie base según `THEME_COLOR_MAPS`.
 - `src/assets/images` y `src/assets/animations`: fuentes. Edita estas.
@@ -24,7 +24,7 @@ También puedes usar `TEMPLATE_THEME=starter-b npm run build`. Si no pasas tema,
 
 ## Agregar una variante de color
 
-1. Crea `src/app/features/shared/themes/template-<nombre>.theme.ts` con la paleta completa.
+1. Crea `src/app/shared/themes/template-<nombre>.theme.ts` con la paleta completa.
 2. Agrega el nombre al tipo `ThemeName`.
 3. Regístralo en `themes.ts`.
 4. Agrégalo en `THEMES` dentro de `scripts/select-theme.js`.

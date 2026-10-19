@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 140" preserveAspectRatio="none" fill="none">
+  <defs>
+    <filter id="goldGlow" x="-20%" y="-80%" width="140%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="waveFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B2E2A"/>
+      <stop offset="100%" stop-color="#0B2E2A"/>
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#waveFill)"
+    d="M0 0H1000V28C860 28 780 118 500 118C220 118 140 28 0 28V0Z"
+  />
+  <path
+    stroke="#C9A84C"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    filter="url(#goldGlow)"
+    d="M0 28C140 28 220 118 500 118C780 118 860 28 1000 28"
+  />
+</svg>

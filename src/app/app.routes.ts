@@ -4,19 +4,19 @@ export const routes: Routes = [
   {
     path: 'expired',
     loadComponent: () =>
-      import('./features/shared/pages/wedding-expired-page/wedding-expired-page.component').then(
+      import('./shared/pages/wedding-expired-page/wedding-expired-page.component').then(
         (m) => m.WeddingExpiredPageComponent
       ),
   },
   {
     path: '',
     loadComponent: () =>
-      import('./features/shared/layout/layout.component').then((m) => m.LayoutComponent),
+      import('./shared/layout/layout.component').then((m) => m.LayoutComponent),
     children: [
       {
         path: '',
         loadComponent: () =>
-          import('./features/model/pages/model-page/model-page.component').then(
+          import('./pages/model-page/model-page.component').then(
             (m) => m.ModelPageComponent
           ),
       },
