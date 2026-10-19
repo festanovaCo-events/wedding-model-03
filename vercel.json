@@ -1,0 +1,18 @@
+{
+  "framework": null,
+  "buildCommand": "NODE_OPTIONS=--max-old-space-size=6144 npm run build",
+  "rewrites": [
+    {
+      "source": "/invitations-wedding-model-03/(.*\\..*)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/invitations-wedding-model-03/(.*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

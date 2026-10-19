@@ -1,0 +1,67 @@
+{
+  "name": "festanova-invite-wedding-model-03",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve -o",
+    "theme:a": "node scripts/select-theme.js starter-a",
+    "theme:b": "node scripts/select-theme.js starter-b",
+    "prebuild": "node scripts/select-theme.js && node scripts/generate-environment.js",
+    "prestart": "node scripts/select-theme.js && node scripts/generate-environment.js",
+    "pretest": "node scripts/select-theme.js && node scripts/generate-environment.js",
+    "predeploy": "npx http-server dist/festanova-invite-wedding-model-03/browser -o -p 8080",
+    "build": "NG_BUILD_MAX_WORKERS=1 ng build --configuration production",
+    "optimize-video": "bash scripts/optimize-video.sh",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "allowScripts": {
+    "esbuild": true,
+    "@scarf/scarf": true,
+    "lmdb": true,
+    "msgpackr-extract": true,
+    "nice-napi": true
+  },
+  "overrides": {
+    "@angular-devkit/build-angular": {
+      "tailwindcss": "^4.0.0"
+    },
+    "zone.js": "~0.14.10"
+  },
+  "dependencies": {
+    "@angular/animations": "^18.2.14",
+    "@angular/common": "^18.2.14",
+    "@angular/compiler": "^18.2.14",
+    "@angular/core": "^18.2.14",
+    "@angular/forms": "^18.2.14",
+    "@angular/platform-browser": "^18.2.14",
+    "@angular/platform-browser-dynamic": "^18.2.14",
+    "@angular/router": "^18.2.14",
+    "@hugeicons/angular": "^1.0.11",
+    "@hugeicons/core-free-icons": "^4.3.0",
+    "@tailwindcss/postcss": "^4.2.0",
+    "lottie-web": "^5.13.0",
+    "ngx-lottie": "^12.0.0",
+    "ngx-toastr": "^18.0.0",
+    "rxjs": "~7.8.2",
+    "tslib": "^2.8.1",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.21",
+    "@angular/cli": "^18.2.21",
+    "@angular/compiler-cli": "^18.2.14",
+    "@types/jasmine": "~5.1.15",
+    "autoprefixer": "^10.4.24",
+    "jasmine-core": "~5.13.0",
+    "karma": "~6.4.4",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.2.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.0",
+    "typescript": "~5.5.4"
+  }
+}

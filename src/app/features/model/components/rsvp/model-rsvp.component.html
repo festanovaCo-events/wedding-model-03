@@ -1,0 +1,26 @@
+@if (view$ | async; as view) {
+  <section class="bg-surface px-6 py-12 text-center">
+    @if (view.isConfirmed) {
+      <app-confirmation-status [invitationData]="view.invitationData" />
+    } @else if (view.isDeclined) {
+      <app-declined-status />
+    } @else if (view.error) {
+      <app-error-status [error]="view.error" />
+    } @else {
+      <h2 class="font-cookie text-4xl text-heading">{{ info.title }}</h2>
+      <p class="mx-auto mt-4 max-w-md text-theme-text">
+        {{ info.text }}
+        <strong class="text-heading">{{ weddingInfo.confirmation.deadlineLabel }}</strong>
+      </p>
+      <button
+        type="button"
+        class="mt-6 rounded-full bg-primary px-6 py-3 font-semibold text-white"
+        (click)="openConfirmation()"
+      >
+        {{ info.buttonText }}
+      </button>
+    }
+  </section>
+}
+
+<app-confirmation-modal-host [show]="isConfirmationModalVisible" (close)="closeConfirmationModal()" />

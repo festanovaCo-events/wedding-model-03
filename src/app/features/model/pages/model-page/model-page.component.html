@@ -1,0 +1,23 @@
+<div class="model-page">
+  <app-model-hero />
+  <app-model-events />
+  <app-model-gifts />
+  <app-model-rsvp />
+</div>
+
+<app-modal [show]="showConfirmationGuide" (close)="closeGuide()">
+  <div class="flex flex-col items-center p-6 text-center">
+    <h2 class="font-cookie text-3xl text-heading">No olvides confirmar tu asistencia</h2>
+    <p class="mt-3 max-w-sm text-sm text-theme-text">
+      Tu confirmación nos ayuda a organizar todo. Solo te tomará un momento.
+    </p>
+    <button
+      type="button"
+      class="mt-6 rounded-full bg-primary px-6 py-3 font-semibold text-white"
+      (click)="openConfirmation()"
+    >
+      Confirmar asistencia
+    </button>
+    <button type="button" class="mt-3 text-sm text-muted" (click)="closeGuide()">Más tarde</button>
+  </div>
+</app-modal>
