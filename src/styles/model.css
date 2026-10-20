@@ -805,6 +805,34 @@ html:has(.m03-page) app-footer > footer {
   min-width: 220px;
 }
 
+/* Status compartidos (confirmation/declined/error): texto claro sobre verde. */
+.m03-rsvp app-confirmation-status .text-heading,
+.m03-rsvp app-declined-status .text-heading,
+.m03-rsvp app-error-status .text-heading {
+  color: var(--m03-cream);
+}
+
+.m03-rsvp app-confirmation-status .text-theme-text,
+.m03-rsvp app-declined-status .text-theme-text,
+.m03-rsvp app-error-status .text-theme-text,
+.m03-rsvp app-error-status .text-primary-soft {
+  color: rgba(247, 243, 235, 0.84);
+}
+
+.m03-rsvp app-confirmation-status .bg-primary {
+  background-color: var(--m03-gold);
+  color: var(--m03-green-deep);
+}
+
+.m03-rsvp app-confirmation-status .bg-surface-alt {
+  background-color: var(--m03-cream);
+  color: var(--m03-ink);
+}
+
+.m03-rsvp app-error-status .text-primary {
+  color: var(--m03-gold);
+}
+
 /* Guest info */
 .m03-guest__list {
   list-style: none;
