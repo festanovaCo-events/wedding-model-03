@@ -252,14 +252,7 @@ html:has(.m03-page) app-footer > footer {
   overflow: hidden;
   border: 1px solid rgba(201, 168, 76, 0.9);
   border-radius: 0;
-  /* Mismo verde sólido que las olas y el bloque del play */
-  background:
-    repeating-linear-gradient(
-      118deg,
-      transparent 0 17px,
-      rgba(255, 255, 255, 0.015) 17px 18px
-    ),
-    var(--m03-green);
+  background: var(--m03-green);
   box-shadow: none;
 }
 
@@ -560,11 +553,11 @@ html:has(.m03-page) app-footer > footer {
   line-height: 1;
 }
 
-/* Events — Ceremony + Reception en una sola fila */
+/* Events — columna en móvil; fila desde tablet */
 .m03-events {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 2rem 1.5rem;
   margin-top: 0.35rem;
   align-items: start;
 }
@@ -1068,6 +1061,11 @@ html:has(.m03-page) app-footer > footer {
 
   .m03-player {
     max-width: 340px;
+  }
+
+  .m03-events {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 1.5rem;
   }
 
   .m03-dress {

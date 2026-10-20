@@ -20,19 +20,25 @@ type NudgeState = 'idle' | 'shake';
   styleUrl: './entrance-letter.component.css',
   animations: [
     trigger('panelLeft', [
-      state('sealed', style({ transform: 'translateX(0)' })),
-      state('open', style({ transform: 'translateX(-105%)' })),
-      transition('sealed => open', animate('1400ms cubic-bezier(0.76, 0, 0.18, 1)')),
+      state('sealed', style({ transform: 'rotateY(0deg)' })),
+      state('open', style({ transform: 'rotateY(-105deg)' })),
+      transition(
+        'sealed => open',
+        animate('1600ms cubic-bezier(0.22, 0.61, 0.36, 1)'),
+      ),
     ]),
     trigger('panelRight', [
-      state('sealed', style({ transform: 'translateX(0)' })),
-      state('open', style({ transform: 'translateX(105%)' })),
-      transition('sealed => open', animate('1400ms cubic-bezier(0.76, 0, 0.18, 1)')),
+      state('sealed', style({ transform: 'rotateY(0deg)' })),
+      state('open', style({ transform: 'rotateY(105deg)' })),
+      transition(
+        'sealed => open',
+        animate('1600ms cubic-bezier(0.22, 0.61, 0.36, 1)'),
+      ),
     ]),
     trigger('actions', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(14px)' }),
-        animate('480ms 620ms ease-out', style({ opacity: 1, transform: 'none' })),
+        animate('480ms 720ms ease-out', style({ opacity: 1, transform: 'none' })),
       ]),
     ]),
   ],
