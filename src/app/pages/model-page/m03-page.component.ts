@@ -4,35 +4,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { EMPTY } from 'rxjs';
 import { catchError, filter, switchMap } from 'rxjs/operators';
-import { ModelHeroComponent } from '../../components/hero/model-hero.component';
-import { ModelEventsComponent } from '../../components/events/model-events.component';
-import { ModelGiftsComponent } from '../../components/gifts/model-gifts.component';
-import { ModelRsvpComponent } from '../../components/rsvp/model-rsvp.component';
-import { ModelClosingComponent } from '../../components/closing/model-closing.component';
+import { M03HeroComponent } from '../../components/hero/m03-hero.component';
+import { M03EventsComponent } from '../../components/events/m03-events.component';
+import { M03GiftsComponent } from '../../components/gifts/m03-gifts.component';
+import { M03RsvpComponent } from '../../components/rsvp/m03-rsvp.component';
+import { M03ClosingComponent } from '../../components/closing/m03-closing.component';
 import { ModalComponent } from '../../shared/components/common/modal/modal.component';
 import { ConfirmationGuideStore } from '../../shared/services/confirmation-guide.store';
 import { ModalFlowService } from '../../shared/services/modal-flow.service';
 import { InvitationStateService } from '../../shared/services/invitation-state.service';
-import { MODEL_INFO } from '../../constants/model-info';
+import { MODEL_03_INFO } from '../../constants/m03-info';
 import { InvitationInfoResponse, hasResponded } from '../../shared/interfaces/invitation.interface';
 import { shouldShowExpiredInvitationPage } from '../../shared/utils/confirmation-deadline';
 
 @Component({
-  selector: 'app-model-page',
+  selector: 'app-m03-page',
   standalone: true,
   imports: [
     CommonModule,
-    ModelHeroComponent,
-    ModelEventsComponent,
-    ModelGiftsComponent,
-    ModelRsvpComponent,
-    ModelClosingComponent,
+    M03HeroComponent,
+    M03EventsComponent,
+    M03GiftsComponent,
+    M03RsvpComponent,
+    M03ClosingComponent,
     ModalComponent,
   ],
-  templateUrl: './model-page.component.html',
+  templateUrl: './m03-page.component.html',
 })
-export class ModelPageComponent implements OnInit {
-  readonly guide = MODEL_INFO.confirmationGuide;
+export class M03PageComponent implements OnInit {
+  readonly guide = MODEL_03_INFO.confirmationGuide;
   showConfirmationGuide = false;
 
   private readonly destroyRef = inject(DestroyRef);

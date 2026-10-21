@@ -4,7 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { combineLatest, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { WEDDING_INFO } from '../../shared/constants/wedding-info';
-import { MODEL_INFO } from '../../constants/model-info';
+import { MODEL_03_INFO } from '../../constants/m03-info';
 import { ConfirmationModalHostComponent } from '../../shared/components/confirmations/confirmation-modal-host.component';
 import { ConfirmationStatusComponent } from '../../shared/components/confirmations/confirmation-status/confirmation-status.component';
 import { DeclinedStatusComponent } from '../../shared/components/confirmations/declined-status/declined-status.component';
@@ -25,7 +25,7 @@ interface RsvpView {
 }
 
 @Component({
-  selector: 'app-model-rsvp',
+  selector: 'app-m03-rsvp',
   standalone: true,
   imports: [
     CommonModule,
@@ -34,13 +34,13 @@ interface RsvpView {
     DeclinedStatusComponent,
     ErrorStatusComponent,
   ],
-  templateUrl: './model-rsvp.component.html',
+  templateUrl: './m03-rsvp.component.html',
 })
-export class ModelRsvpComponent implements OnInit {
+export class M03RsvpComponent implements OnInit {
   readonly weddingInfo = WEDDING_INFO;
-  readonly info = MODEL_INFO.rsvp;
-  readonly leaf = MODEL_INFO.images.leaf;
-  readonly flourish = MODEL_INFO.images.flourish;
+  readonly info = MODEL_03_INFO.rsvp;
+  readonly leaf = MODEL_03_INFO.images.leaf;
+  readonly flourish = MODEL_03_INFO.images.flourish;
   readonly view$: Observable<RsvpView>;
 
   isConfirmationModalVisible = false;

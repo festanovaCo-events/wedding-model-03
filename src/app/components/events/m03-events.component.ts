@@ -9,16 +9,16 @@ import {
   UserGroupIcon,
   WeddingIcon,
 } from '@hugeicons/core-free-icons';
-import { MODEL_INFO, ModelTimelineIcon } from '../../constants/model-info';
+import { MODEL_03_INFO, Model03TimelineIcon } from '../../constants/m03-info';
 
 @Component({
-  selector: 'app-model-events',
+  selector: 'app-m03-events',
   standalone: true,
   imports: [HugeiconsIconComponent],
-  templateUrl: './model-events.component.html',
+  templateUrl: './m03-events.component.html',
 })
-export class ModelEventsComponent {
-  readonly info = MODEL_INFO;
+export class M03EventsComponent {
+  readonly info = MODEL_03_INFO;
   readonly ChurchIcon = ChurchIcon;
   readonly UserGroupIcon = UserGroupIcon;
 
@@ -30,7 +30,7 @@ export class ModelEventsComponent {
     sparkle: SparklesIcon,
   } as const;
 
-  timelineIcon(icon: ModelTimelineIcon) {
+  timelineIcon(icon: Model03TimelineIcon) {
     switch (icon) {
       case 'rings':
         return this.timelineIcons.rings;

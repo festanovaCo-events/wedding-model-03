@@ -5,18 +5,18 @@ import { HugeiconsIconComponent } from '@hugeicons/angular';
 import { NextIcon, PauseIcon, PlayIcon, PreviousIcon } from '@hugeicons/core-free-icons';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MODEL_INFO } from '../../constants/model-info';
+import { MODEL_03_INFO } from '../../constants/m03-info';
 import { BackgroundMusicService } from '../../shared/services/background-music.service';
 
 @Component({
-  selector: 'app-model-music-player',
+  selector: 'app-m03-music-player',
   standalone: true,
   imports: [CommonModule, HugeiconsIconComponent],
-  templateUrl: './model-music-player.component.html',
+  templateUrl: './m03-music-player.component.html',
 })
-export class ModelMusicPlayerComponent implements OnInit {
-  readonly music = MODEL_INFO.music;
-  readonly hint = MODEL_INFO.hero.musicHint;
+export class M03MusicPlayerComponent implements OnInit {
+  readonly music = MODEL_03_INFO.music;
+  readonly hint = MODEL_03_INFO.hero.musicHint;
   readonly PreviousIcon = PreviousIcon;
   readonly PlayIcon = PlayIcon;
   readonly PauseIcon = PauseIcon;

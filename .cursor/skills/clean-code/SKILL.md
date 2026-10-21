@@ -68,18 +68,18 @@ Estas reglas se aplican así en **wedding-model-03**. El cambio se queda en el d
 - UI del modelo: `src/app/components/` (hero, events, gifts, rsvp, closing, music-player).
 - Página: `src/app/pages/model-page/`.
 - Shared: `src/app/shared/` (servicios, dominio, temas, layout, confirmaciones).
-- Copy y datos del modelo: `src/app/constants/model-info.ts` + `src/app/shared/constants/wedding-info.ts`.
-- Estilos del modelo: `src/styles/model.css` con prefijo `m03-*`.
+- Copy y datos del modelo: `src/app/constants/m03-info.ts` + `src/app/shared/constants/wedding-info.ts`.
+- Estilos del modelo: `src/styles/model-03.css` con prefijo `m03-*`.
 - Assets: `src/assets/images/` (sin carpeta `model-03/`).
 - La ruta activa usa `pages/` + `shared/` + `components/`. No añadas código nuevo bajo `src/app/features/`; ese árbol es legado/duplicado.
 
 ### Reglas concretas
-- Constantes: el tope de cupos sale de `seats_reserved` vía `GuestList`. No uses `7` ni `2` como límite inventado. Textos de UI salen de `MODEL_INFO` / `WEDDING_INFO`, no hardcodeados en plantillas.
+- Constantes: el tope de cupos sale de `seats_reserved` vía `GuestList`. No uses `7` ni `2` como límite inventado. Textos de UI salen de `MODEL_03_INFO` / `WEDDING_INFO`, no hardcodeados en plantillas.
 - DRY: `hasResponded` es el único criterio de invitación ya respondida. `shouldShowExpiredInvitationPage` es la única regla de expiración. La música de fondo pasa por `BackgroundMusicService`; no dupliques lógica de audio en el player.
-- Responsabilidad única: `ModelPageComponent` orquesta carga, expiración y modal. Los componentes de sección solo pintan. El dominio (`GuestList`) no lleva copy de interfaz. No partas un componente de menos de unas 30 líneas.
+- Responsabilidad única: `M03PageComponent` orquesta carga, expiración y modal. Los componentes de sección solo pintan. El dominio (`GuestList`) no lleva copy de interfaz. No partas un componente de menos de unas 30 líneas.
 - Encapsulación: el puerto que ya existe es `INVITATION_API` (HTTP/mock vía `RoutedInvitationApi`). El estado vive en `InvitationStateService`. No añadas un token por servicio, NgRx, una máquina de estados del RSVP ni un mapper por campo del API.
 - Iconos: UI con `@hugeicons/angular` + `@hugeicons/core-free-icons`. No vuelvas a meter SVG inline para iconos de acciones o secciones. Los SVG de olas/decoración del hero sí pueden quedarse.
-- Temas: cambios de color/assets del sistema de temas en `src/app/shared/themes/` y `ACTIVE_THEME`. El look del modelo 03 (verde/oro, olas, player) vive en `model.css` y assets locales.
+- Temas: cambios de color/assets del sistema de temas en `src/app/shared/themes/` y `ACTIVE_THEME`. El look del modelo 03 (verde/oro, olas, player) vive en `model-03.css` y assets locales.
 - Deuda: borra lo que ninguna plantilla monta. No lo abstraigas. Si hay duplicado en `features/`, no lo alimentes; trabaja en la ruta canónica.
 - Tests: plazo, cupos, redirección, wizard de confirmación, y utilidades de fecha/tema cuando toque. No un spec por cada sección visual.
 - En un `switch` sobre uniones o enums, el `default` debe asignar el valor a `never`. Los imports van al inicio del archivo.

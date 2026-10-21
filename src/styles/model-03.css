@@ -15,7 +15,6 @@ html:has(.m03-page) {
 }
 
 /* Shell como model-01/02: 100% en móvil, tope 1280px, página blanca. */
-.model-page,
 .m03-page {
   width: 100%;
   max-width: 1280px;
@@ -27,7 +26,7 @@ html:has(.m03-page) {
 }
 
 /* Hosts en bloque: evita el hueco/línea blanca entre secciones y el footer. */
-app-model-page,
+app-m03-page,
 .m03-page > *,
 html:has(.m03-page) app-footer {
   display: block;

@@ -16,8 +16,8 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./pages/model-page/model-page.component').then(
-            (m) => m.ModelPageComponent
+          import('./pages/model-page/m03-page.component').then(
+            (m) => m.M03PageComponent
           ),
       },
     ],

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "ngx-toastr/toastr";
 @import "./theme-vars.generated.css";
-@import "./styles/model.css";
+@import "./styles/model-03.css";
 
 @font-face {
   font-family: 'Open Sans';

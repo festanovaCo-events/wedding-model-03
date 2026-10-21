@@ -4,15 +4,15 @@ import { formatModelTime } from '../shared/utils/wedding-datetime';
 const ceremony = WEDDING_INFO.events.ceremony;
 const party = WEDDING_INFO.events.party;
 
-export type ModelTimelineIcon = 'rings' | 'camera' | 'dinner' | 'music' | 'sparkle';
+export type Model03TimelineIcon = 'rings' | 'camera' | 'dinner' | 'music' | 'sparkle';
 
-export interface ModelTimelineItem {
+export interface Model03TimelineItem {
   time: string;
   label: string;
-  icon: ModelTimelineIcon;
+  icon: Model03TimelineIcon;
 }
 
-export const MODEL_INFO = {
+export const MODEL_03_INFO = {
   hero: {
     kicker: "We're getting married",
     title: WEDDING_INFO.couple.fullName,
@@ -67,7 +67,7 @@ export const MODEL_INFO = {
       { time: formatModelTime(party.startsAt), label: 'Dinner', icon: 'dinner' },
       { time: '7:30 PM', label: 'Dancing & Party', icon: 'music' },
       { time: '11:00 PM', label: 'Sparkler Send-off', icon: 'sparkle' },
-    ] as const satisfies readonly ModelTimelineItem[],
+    ] as const satisfies readonly Model03TimelineItem[],
   },
 
   dressCode: WEDDING_INFO.sections.dressCode,

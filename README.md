@@ -35,7 +35,7 @@ Para agregar otra paleta, sigue [docs/sistema-temas-template.md](docs/sistema-te
 
 ## Contenido de la invitación
 
-Textos, fechas y lugares salen de `src/app/shared/constants/wedding-info.ts`. Los textos propios del diseño salen de `src/app/constants/model-info.ts`.
+Textos, fechas y lugares salen de `src/app/shared/constants/wedding-info.ts`. Los textos propios del diseño salen de `src/app/constants/m03-info.ts`.
 
 Las imágenes y animaciones del modelo se declaran en `theme.types.ts` (`ThemeAssets` y `ThemeAnimations`). El starter trae portada, un SVG y los Lottie `heart`, `heart_pulse` y `music`. Si el diseño nuevo necesita otra decoración, agrega el campo al tipo, a `theme-assets.ts` y al mapa de color.
 
