@@ -14,7 +14,8 @@ import { ConfirmationGuideStore } from '../../shared/services/confirmation-guide
 import { ModalFlowService } from '../../shared/services/modal-flow.service';
 import { InvitationStateService } from '../../shared/services/invitation-state.service';
 import { MODEL_03_INFO } from '../../constants/m03-info';
-import { InvitationInfoResponse, hasResponded } from '../../shared/interfaces/invitation.interface';
+import { InvitationInfoResponse } from '../../shared/interfaces/invitation.interface';
+import { hasResponded } from '../../shared/utils/invitation-status';
 import { shouldShowExpiredInvitationPage } from '../../shared/utils/confirmation-deadline';
 
 @Component({

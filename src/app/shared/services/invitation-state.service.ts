@@ -7,8 +7,8 @@ import {
   DeclineInvitationResponse,
   InvitationInfoResponse,
   InvitationStatus,
-  invitationStatusView,
 } from '../interfaces/invitation.interface';
+import { invitationStatusView } from '../utils/invitation-status';
 import { INVITATION_API, InvitationApi } from './invitation-api';
 
 export class MissingInvitationTokenError extends Error {

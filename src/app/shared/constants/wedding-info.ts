@@ -1,13 +1,13 @@
 import { ACTIVE_THEME } from '../themes/active-theme';
 import {
-  buildGoogleCalendarUrl,
   formatBannerDate,
+  formatDottedDate,
   formatEventDateLabel,
   formatLongDate,
   formatModelTime,
   instagramExploreUrl,
-  readZonedParts,
   toGoogleCalendarStamp,
+  weddingEventCalendarUrl,
 } from '../utils/wedding-datetime';
 
 const HUSBAND_NAME = 'Daniel';
@@ -29,34 +29,13 @@ const PARTY_ADDRESS = '456 Garden Lane';
 /** Entrada: 'letter' abre una carta al hacer clic; 'heart' usa el loader del corazón. */
 export type EntranceAnimation = 'heart' | 'letter';
 
-function entranceAnimation(): EntranceAnimation {
-  return 'letter';
-}
+const ENTRANCE_ANIMATION = 'letter' as EntranceAnimation;
 
-function calendarUrl(title: string, startsAt: string, endsAt: string, location: string): string {
-  return buildGoogleCalendarUrl({
-    title: `Boda de ${WIFE_NAME} y ${HUSBAND_NAME} (${title})`,
-    startsAt,
-    endsAt,
-    location,
-    details: CALENDAR_DETAILS,
-  });
-}
-
-function dottedBannerDate(iso: string): string {
-  const parts = readZonedParts(iso);
-  const day = String(parts.day).padStart(2, '0');
-  const month = String(parts.month).padStart(2, '0');
-  return `${day} . ${month} . ${parts.year}`;
-}
-
-function weekdayLabel(_iso: string): string {
-  // Fecha del diseño de referencia (24.08.2025 SATURDAY).
-  return 'SATURDAY';
-}
+/** Fecha del diseño de referencia (24.08.2025 SATURDAY). */
+const REFERENCE_WEEKDAY = 'SATURDAY';
 
 export const WEDDING_INFO = {
-  entrance: entranceAnimation(),
+  entrance: ENTRANCE_ANIMATION,
 
   couple: {
     husbandName: HUSBAND_NAME,
@@ -74,8 +53,8 @@ export const WEDDING_INFO = {
 
   dates: {
     bannerDate: formatBannerDate(CEREMONY_START),
-    dottedDate: dottedBannerDate(CEREMONY_START),
-    weekday: weekdayLabel(CEREMONY_START),
+    dottedDate: formatDottedDate(CEREMONY_START),
+    weekday: REFERENCE_WEEKDAY,
     weddingDate: CEREMONY_START,
     ceremonyDate: formatEventDateLabel(CEREMONY_START),
     partyDate: formatEventDateLabel(PARTY_START),
@@ -100,12 +79,15 @@ export const WEDDING_INFO = {
       startsAt: CEREMONY_START,
       endsAt: CEREMONY_END,
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=St+Marys+Catholic+Church',
-      calendarUrl: calendarUrl(
-        'Ceremony',
-        CEREMONY_START,
-        CEREMONY_END,
-        `${CEREMONY_PLACE}, ${CEREMONY_ADDRESS}`,
-      ),
+      calendarUrl: weddingEventCalendarUrl({
+        eventTitle: 'Ceremony',
+        wifeName: WIFE_NAME,
+        husbandName: HUSBAND_NAME,
+        startsAt: CEREMONY_START,
+        endsAt: CEREMONY_END,
+        location: `${CEREMONY_PLACE}, ${CEREMONY_ADDRESS}`,
+        details: CALENDAR_DETAILS,
+      }),
     },
     party: {
       title: 'Reception',
@@ -117,12 +99,15 @@ export const WEDDING_INFO = {
       startsAt: PARTY_START,
       endsAt: PARTY_END,
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Botanical+Garden',
-      calendarUrl: calendarUrl(
-        'Reception',
-        PARTY_START,
-        PARTY_END,
-        `${PARTY_PLACE}, ${PARTY_ADDRESS}`,
-      ),
+      calendarUrl: weddingEventCalendarUrl({
+        eventTitle: 'Reception',
+        wifeName: WIFE_NAME,
+        husbandName: HUSBAND_NAME,
+        startsAt: PARTY_START,
+        endsAt: PARTY_END,
+        location: `${PARTY_PLACE}, ${PARTY_ADDRESS}`,
+        details: CALENDAR_DETAILS,
+      }),
     },
   },
 

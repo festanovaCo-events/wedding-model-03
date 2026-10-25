@@ -57,10 +57,11 @@ export function formatEventDateLabel(iso: string): string {
 }
 
 export function formatBannerDate(iso: string): string {
-  const parts = readZonedParts(iso);
-  const day = String(parts.day).padStart(2, '0');
-  const month = String(parts.month).padStart(2, '0');
-  return `${day}.${month}.${parts.year}`;
+  return paddedCalendarDate(iso, '.');
+}
+
+export function formatDottedDate(iso: string): string {
+  return paddedCalendarDate(iso, ' . ');
 }
 
 export function formatModelDate(iso: string): {
@@ -87,6 +88,24 @@ export function formatModelTime(iso: string): string {
   }).format(new Date(iso));
 }
 
+export function weddingEventCalendarUrl(input: {
+  eventTitle: string;
+  wifeName: string;
+  husbandName: string;
+  startsAt: string;
+  endsAt: string;
+  location: string;
+  details: string;
+}): string {
+  return buildGoogleCalendarUrl({
+    title: `Boda de ${input.wifeName} y ${input.husbandName} (${input.eventTitle})`,
+    startsAt: input.startsAt,
+    endsAt: input.endsAt,
+    location: input.location,
+    details: input.details,
+  });
+}
+
 export function buildGoogleCalendarUrl(input: {
   title: string;
   startsAt: string;
@@ -110,6 +129,13 @@ export function buildGoogleCalendarUrl(input: {
 export function instagramExploreUrl(hashtag: string): string {
   const tag = hashtag.startsWith('#') ? hashtag.slice(1) : hashtag;
   return `https://www.instagram.com/explore/tags/${encodeURIComponent(tag)}/`;
+}
+
+function paddedCalendarDate(iso: string, separator: string): string {
+  const parts = readZonedParts(iso);
+  const day = String(parts.day).padStart(2, '0');
+  const month = String(parts.month).padStart(2, '0');
+  return `${day}${separator}${month}${separator}${parts.year}`;
 }
 
 function capitalize(value: string): string {

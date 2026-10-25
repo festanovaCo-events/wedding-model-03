@@ -5,24 +5,14 @@ import { combineLatest, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { WEDDING_INFO } from '../../shared/constants/wedding-info';
 import { MODEL_03_INFO } from '../../constants/m03-info';
+import { RsvpView } from '../../shared/interfaces/rsvp-view.interface';
 import { ConfirmationModalHostComponent } from '../../shared/components/confirmations/confirmation-modal-host.component';
 import { ConfirmationStatusComponent } from '../../shared/components/confirmations/confirmation-status/confirmation-status.component';
 import { DeclinedStatusComponent } from '../../shared/components/confirmations/declined-status/declined-status.component';
 import { ErrorStatusComponent } from '../../shared/components/confirmations/error-status/error-status.component';
 import { InvitationStateService } from '../../shared/services/invitation-state.service';
 import { ModalFlowService } from '../../shared/services/modal-flow.service';
-import {
-  InvitationInfoResponse,
-  hasResponded,
-  invitationStatusView,
-} from '../../shared/interfaces/invitation.interface';
-
-interface RsvpView {
-  invitationData: InvitationInfoResponse | null;
-  error: string | null;
-  isConfirmed: boolean;
-  isDeclined: boolean;
-}
+import { hasResponded, invitationStatusView } from '../../shared/utils/invitation-status';
 
 @Component({
   selector: 'app-m03-rsvp',

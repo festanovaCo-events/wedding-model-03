@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs/operators';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
+import { FavouriteIcon } from '@hugeicons/core-free-icons';
 import { ExpiredBannerComponent } from '../../components/expired-banner/expired-banner.component';
 import { InvitationCardComponent } from '../../components/invitation-card/invitation-card.component';
 import { MODEL_IDENTITY } from '../../constants/model-identity';
@@ -14,11 +16,12 @@ import { shouldShowExpiredInvitationPage } from '../../utils/confirmation-deadli
 @Component({
   selector: 'app-wedding-expired-page',
   standalone: true,
-  imports: [CommonModule, ExpiredBannerComponent, InvitationCardComponent],
+  imports: [CommonModule, HugeiconsIconComponent, ExpiredBannerComponent, InvitationCardComponent],
   templateUrl: './wedding-expired-page.component.html',
   styleUrl: './wedding-expired-page.component.css',
 })
 export class WeddingExpiredPageComponent implements OnInit {
+  readonly FavouriteIcon = FavouriteIcon;
   readonly coupleName = WEDDING_INFO.couple.fullName;
   readonly deadline = WEDDING_INFO.confirmation.deadlineLabel;
   readonly inviteeName$ = inject(InvitationStateService).hostName$.pipe(
