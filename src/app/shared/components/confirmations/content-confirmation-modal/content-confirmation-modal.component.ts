@@ -4,20 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ToastrService } from 'ngx-toastr';
 import { filter } from 'rxjs/operators';
+import { GUEST_STEP_DELAY_MS } from '../../../constants/confirmation-flow';
 import { INVITATION_MESSAGES } from '../../../constants/invitation-messages';
 import { GuestList } from '../../../domain/guest-list';
+import { ConfirmationStep } from '../../../interfaces/confirmation-step';
 import { InvitationInfoResponse } from '../../../interfaces/invitation.interface';
 import { InvitationStateService } from '../../../services/invitation-state.service';
 import { ConfirmAlertComponent } from '../../common/confirm-alert/confirm-alert.component';
-
-type ConfirmationStep =
-  | 'confirmation'
-  | 'loading'
-  | 'guests'
-  | 'decline-confirmation'
-  | 'partial-quotas-confirmation';
-
-const GUEST_STEP_DELAY_MS = 1500;
 
 @Component({
   selector: 'app-content-confirmation-modal',

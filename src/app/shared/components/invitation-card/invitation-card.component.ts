@@ -1,15 +1,20 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
+import { ArrowDown01Icon, FavouriteIcon, SquareArrowUpRightIcon } from '@hugeicons/core-free-icons';
 
 @Component({
   selector: 'app-invitation-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HugeiconsIconComponent],
   templateUrl: './invitation-card.component.html',
   styleUrl: './invitation-card.component.css',
 })
 export class InvitationCardComponent implements OnChanges {
+  readonly FavouriteIcon = FavouriteIcon;
+  readonly ArrowDown01Icon = ArrowDown01Icon;
+  readonly SquareArrowUpRightIcon = SquareArrowUpRightIcon;
   /** URL absoluta de la invitación (con token). Se abre en iframe con preview=1. */
   @Input() invitationUrl = '';
 

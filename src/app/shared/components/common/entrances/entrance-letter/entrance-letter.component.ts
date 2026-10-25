@@ -8,9 +8,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { WEDDING_INFO } from '../../../../constants/wedding-info';
-
-type LetterPhase = 'sealed' | 'open';
-type NudgeState = 'idle' | 'shake';
+import { LetterPhase, NudgeState } from '../../../../interfaces/entrance-letter.types';
 
 @Component({
   selector: 'app-entrance-letter',

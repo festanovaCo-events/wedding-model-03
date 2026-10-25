@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
+import { Cancel01Icon } from '@hugeicons/core-free-icons';
 
 @Component({
   selector: 'app-declined-status',
   standalone: true,
-  imports: [CommonModule],
+  imports: [HugeiconsIconComponent],
   templateUrl: './declined-status.component.html',
 })
-export class DeclinedStatusComponent {}
+export class DeclinedStatusComponent {
+  readonly Cancel01Icon = Cancel01Icon;
+}
