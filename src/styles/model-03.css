@@ -12,6 +12,7 @@ html:has(.m03-page) {
 
   /* Mismo fondo exterior que model-01/02 */
   background: #ecebe6;
+  overflow-x: clip;
 }
 
 /* Shell como model-01/02: 100% en móvil, tope 1280px, página blanca. */
@@ -47,7 +48,7 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-section {
   position: relative;
-  padding: 3rem 1.5rem 2.75rem;
+  padding: 3rem clamp(1rem, 6.2vw, 1.5rem) 2.75rem;
   text-align: center;
 }
 
@@ -62,11 +63,14 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-section__title {
   margin: 0;
+  min-width: 0;
   font-family: var(--m03-serif);
-  font-size: 1.75rem;
+  font-size: clamp(1.2rem, 7.2vw, 1.75rem);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: clamp(0.06em, 0.86vw, 0.12em);
+  line-height: 1.15;
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: var(--m03-green);
 }
 
@@ -80,11 +84,13 @@ html:has(.m03-page) app-footer > footer {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
+  max-width: 100%;
 }
 
 .m03-heading__leaf {
-  width: 28px;
+  width: clamp(20px, 7.2vw, 28px);
   height: auto;
+  flex: none;
   opacity: 0.95;
   transform: rotate(-18deg);
 }
@@ -108,6 +114,8 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-btn {
   display: inline-block;
+  box-sizing: border-box;
+  max-width: 100%;
   margin-top: 1rem;
   padding: 0.72rem 1.45rem;
   border: 1px solid transparent;
@@ -117,7 +125,10 @@ html:has(.m03-page) app-footer > footer {
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.16em;
+  line-height: 1.35;
+  text-align: center;
   text-transform: uppercase;
+  white-space: normal;
   text-decoration: none;
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
@@ -144,7 +155,7 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-leaf {
   position: absolute;
-  width: 72px;
+  width: clamp(56px, 18.5vw, 72px);
   height: auto;
   pointer-events: none;
   opacity: 0.92;
@@ -160,14 +171,14 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-leaf--gifts-left,
 .m03-leaf--rsvp-left {
-  left: -0.4rem;
+  left: 0.2rem;
   top: 0.85rem;
   transform: rotate(-14deg);
 }
 
 .m03-leaf--gifts-right,
 .m03-leaf--rsvp-right {
-  right: -0.4rem;
+  right: 0.2rem;
   bottom: 1rem;
   transform: scaleX(-1) rotate(-10deg);
 }
@@ -258,7 +269,7 @@ html:has(.m03-page) app-footer > footer {
 .m03-hero__intro {
   position: relative;
   z-index: 2;
-  padding: 4.6rem 1.35rem 2.65rem;
+  padding: 4.6rem clamp(1rem, 5.6vw, 1.35rem) 2.65rem;
   text-align: center;
 }
 
@@ -292,10 +303,12 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-hero__kicker {
   margin: 0;
-  font-size: 0.68rem;
+  padding-inline: 0.15rem;
+  font-size: clamp(0.56rem, 2.8vw, 0.68rem);
   font-weight: 400;
-  letter-spacing: 0.34em;
+  letter-spacing: clamp(0.14em, 1.05vw, 0.34em);
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: rgba(247, 243, 235, 0.78);
   animation: m03-fade-up 900ms 100ms ease both;
 }
@@ -307,14 +320,20 @@ html:has(.m03-page) app-footer > footer {
   justify-content: center;
   gap: 0.35rem 0.55rem;
   margin: 0.55rem 0 0;
+  max-width: 100%;
   font-family: var(--m03-serif);
-  font-size: clamp(1.95rem, 8vw, 2.55rem);
+  font-size: clamp(1.45rem, 8vw, 2.55rem);
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #fff;
   line-height: 1.05;
   animation: m03-fade-up 900ms 180ms ease both;
+}
+
+.m03-hero__names > span {
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .m03-hero__amp {
@@ -330,17 +349,19 @@ html:has(.m03-page) app-footer > footer {
 .m03-hero__date {
   margin: 0;
   font-family: var(--m03-serif);
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 4.4vw, 1.05rem);
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: clamp(0.12em, 1.2vw, 0.28em);
+  overflow-wrap: break-word;
   color: var(--m03-gold);
 }
 
 .m03-hero__weekday {
   margin: 0.55rem 0 0;
-  font-size: 0.66rem;
-  letter-spacing: 0.36em;
+  font-size: clamp(0.58rem, 2.7vw, 0.66rem);
+  letter-spacing: clamp(0.16em, 1.15vw, 0.36em);
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: rgba(247, 243, 235, 0.68);
 }
 
@@ -420,7 +441,7 @@ html:has(.m03-page) app-footer > footer {
 }
 
 .m03-player__card {
-  padding: 1.3rem 1.65rem 1.25rem;
+  padding: 1.3rem clamp(1rem, 6.8vw, 1.65rem) 1.25rem;
   border: 1.5px solid rgba(201, 168, 76, 0.95);
   border-radius: 18px;
   background: rgba(11, 46, 42, 0.55);
@@ -434,19 +455,21 @@ html:has(.m03-page) app-footer > footer {
 .m03-player__title {
   margin: 0;
   font-family: var(--m03-serif);
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 4.8vw, 1.15rem);
   font-weight: 500;
   letter-spacing: 0.01em;
   color: #fff;
   line-height: 1.2;
+  overflow-wrap: break-word;
 }
 
 .m03-player__artist {
   margin: 0.28rem 0 0;
   font-family: var(--m03-serif);
-  font-size: 0.92rem;
+  font-size: clamp(0.82rem, 3.8vw, 0.92rem);
   font-weight: 400;
   letter-spacing: 0.1em;
+  overflow-wrap: break-word;
   color: var(--m03-gold);
 }
 
@@ -538,9 +561,11 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-player__hint {
   margin: 1.05rem 0 0;
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
+  padding-inline: 0.4rem;
+  font-size: clamp(0.52rem, 2.4vw, 0.58rem);
+  letter-spacing: clamp(0.08em, 0.7vw, 0.2em);
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: rgba(247, 243, 235, 0.78);
 }
 
@@ -593,9 +618,10 @@ html:has(.m03-page) app-footer > footer {
 .m03-event__title {
   margin: 0;
   font-family: var(--m03-serif);
-  font-size: 1.45rem;
+  font-size: clamp(1.25rem, 6vw, 1.45rem);
   font-weight: 500;
   letter-spacing: 0.04em;
+  overflow-wrap: break-word;
   color: var(--m03-green);
 }
 
@@ -610,12 +636,14 @@ html:has(.m03-page) app-footer > footer {
   margin: 0.35rem 0 0;
   font-size: 0.9rem;
   font-weight: 500;
+  overflow-wrap: break-word;
   color: var(--m03-ink);
 }
 
 .m03-event__address {
   margin: 0.15rem 0 0;
   font-size: 0.8rem;
+  overflow-wrap: break-word;
   color: var(--m03-muted);
 }
 
@@ -651,7 +679,7 @@ html:has(.m03-page) app-footer > footer {
 .m03-timeline__item {
   position: relative;
   display: grid;
-  grid-template-columns: 22px 38px 1fr;
+  grid-template-columns: 22px 38px minmax(0, 1fr);
   gap: 0.65rem;
   align-items: center;
   padding: 0.78rem 0;
@@ -694,6 +722,7 @@ html:has(.m03-page) app-footer > footer {
   margin: 0.12rem 0 0;
   font-size: 0.9rem;
   font-weight: 400;
+  overflow-wrap: break-word;
   color: var(--m03-muted);
 }
 
@@ -706,8 +735,9 @@ html:has(.m03-page) app-footer > footer {
 .m03-dress__label {
   margin: 0.55rem 0 1.2rem;
   font-family: var(--m03-script);
-  font-size: 2.35rem;
-  line-height: 1;
+  font-size: clamp(1.7rem, 9.7vw, 2.35rem);
+  line-height: 1.05;
+  overflow-wrap: break-word;
   color: var(--m03-green);
 }
 
@@ -742,10 +772,11 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-gifts__text {
   margin: 0 auto;
-  max-width: 30ch;
-  font-size: 0.9rem;
+  max-width: min(30ch, 100%);
+  font-size: clamp(0.84rem, 3.6vw, 0.9rem);
   font-weight: 300;
   line-height: 1.65;
+  overflow-wrap: break-word;
   color: rgba(247, 243, 235, 0.84);
 }
 
@@ -766,9 +797,10 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-gifts__scan {
   margin: 0;
-  font-size: 0.64rem;
-  letter-spacing: 0.24em;
+  font-size: clamp(0.58rem, 2.6vw, 0.64rem);
+  letter-spacing: clamp(0.1em, 1vw, 0.24em);
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: var(--m03-gold);
 }
 
@@ -776,19 +808,21 @@ html:has(.m03-page) app-footer > footer {
 .m03-rsvp__title {
   margin: 0;
   font-family: var(--m03-serif);
-  font-size: 3.3rem;
+  font-size: clamp(2.4rem, 13.6vw, 3.3rem);
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: clamp(0.1em, 3vw, 0.22em);
+  overflow-wrap: break-word;
   color: var(--m03-gold);
 }
 
 .m03-rsvp__text {
   margin: 0 auto 0.35rem;
-  max-width: 26ch;
-  font-size: 0.74rem;
-  letter-spacing: 0.12em;
+  max-width: min(26ch, 100%);
+  font-size: clamp(0.68rem, 3vw, 0.74rem);
+  letter-spacing: clamp(0.06em, 0.8vw, 0.12em);
   text-transform: uppercase;
   line-height: 1.75;
+  overflow-wrap: break-word;
   color: rgba(247, 243, 235, 0.84);
 }
 
@@ -801,7 +835,7 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-rsvp .m03-btn {
   margin-top: 1.45rem;
-  min-width: 220px;
+  min-width: min(220px, 100%);
 }
 
 /* Status compartidos (confirmation/declined/error): texto claro sobre verde. */
@@ -845,7 +879,7 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-guest__item {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 44px minmax(0, 1fr);
   gap: 0.9rem;
   align-items: start;
   justify-self: center;
@@ -872,9 +906,10 @@ html:has(.m03-page) app-footer > footer {
 .m03-guest__item h3 {
   margin: 0;
   font-family: var(--m03-serif);
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 4.8vw, 1.15rem);
   font-weight: 500;
   letter-spacing: 0.04em;
+  overflow-wrap: break-word;
   color: var(--m03-green);
 }
 
@@ -882,6 +917,7 @@ html:has(.m03-page) app-footer > footer {
   margin: 0.28rem 0 0;
   font-size: 0.84rem;
   line-height: 1.5;
+  overflow-wrap: break-word;
   color: var(--m03-muted);
 }
 
@@ -898,12 +934,13 @@ html:has(.m03-page) app-footer > footer {
 
 .m03-quote p {
   margin: 0 auto;
-  max-width: 28ch;
+  max-width: min(28ch, 100%);
   font-family: var(--m03-serif);
-  font-size: 1.12rem;
+  font-size: clamp(1rem, 4.6vw, 1.12rem);
   font-style: italic;
   font-weight: 400;
   line-height: 1.7;
+  overflow-wrap: break-word;
   color: var(--m03-green);
 }
 
@@ -935,10 +972,11 @@ html:has(.m03-page) app-footer > footer {
 .m03-closing__thanks {
   margin: 0;
   font-family: var(--m03-serif);
-  font-size: 1.7rem;
+  font-size: clamp(1.25rem, 7vw, 1.7rem);
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: clamp(0.1em, 1.5vw, 0.2em);
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: #fff;
 }
 
@@ -958,7 +996,7 @@ html:has(.m03-page) app-footer > footer {
   width: 100%;
   aspect-ratio: 3 / 4;
   max-height: min(72vh, 560px);
-  min-height: 420px;
+  min-height: min(420px, 125vw);
   object-fit: cover;
   object-position: center 40%;
 }
@@ -981,17 +1019,20 @@ html:has(.m03-page) app-footer > footer {
 .m03-closing__with {
   margin: 0;
   font-family: var(--m03-script);
-  font-size: 2.15rem;
+  font-size: clamp(1.7rem, 8vw, 2.15rem);
   line-height: 1.1;
+  overflow-wrap: break-word;
   color: rgba(247, 243, 235, 0.95);
 }
 
 .m03-closing__names {
   margin: 0.35rem 0 0;
+  padding-inline: 0.35rem;
   font-family: var(--m03-serif);
-  font-size: 1.2rem;
-  letter-spacing: 0.18em;
+  font-size: clamp(0.95rem, 5vw, 1.2rem);
+  letter-spacing: clamp(0.08em, 1vw, 0.18em);
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: #fff;
 }
 
@@ -1037,6 +1078,20 @@ html:has(.m03-page) app-footer > footer {
 
   .m03-heading__leaf {
     width: 34px;
+  }
+
+  .m03-leaf {
+    width: 72px;
+  }
+
+  .m03-leaf--gifts-left,
+  .m03-leaf--rsvp-left {
+    left: -0.4rem;
+  }
+
+  .m03-leaf--gifts-right,
+  .m03-leaf--rsvp-right {
+    right: -0.4rem;
   }
 
   .m03-flourish {

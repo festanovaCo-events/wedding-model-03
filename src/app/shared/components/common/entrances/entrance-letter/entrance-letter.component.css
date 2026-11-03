@@ -10,7 +10,7 @@
 }
 
 .curtain {
-  --seal-size: 196px;
+  --seal-size: min(196px, 62vw);
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -72,11 +72,13 @@
 
 .reveal-kicker {
   margin: 0;
+  padding-inline: 8px;
   color: rgba(247, 243, 235, 0.72);
-  font-size: 11px;
+  font-size: clamp(10px, 2.8vw, 11px);
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: clamp(0.16em, 1.2vw, 0.34em);
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .reveal-names {
@@ -94,9 +96,11 @@
 }
 
 .name {
-  font-size: 42px;
+  max-width: 100%;
+  font-size: clamp(28px, 11vw, 42px);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .ampersand {
@@ -114,10 +118,12 @@
 
 .reveal-date {
   margin: 0;
+  padding-inline: 8px;
   color: #f7f3eb;
-  font-size: 13px;
+  font-size: clamp(11px, 3.4vw, 13px);
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: clamp(0.12em, 1.2vw, 0.28em);
+  overflow-wrap: break-word;
 }
 
 .reveal-note {
@@ -288,12 +294,14 @@
   bottom: 10%;
   z-index: 4;
   margin: 0;
+  padding-inline: 12px;
   color: rgba(90, 68, 42, 0.72);
-  font-size: 11px;
+  font-size: clamp(10px, 2.8vw, 11px);
   font-weight: 600;
-  letter-spacing: 0.42em;
+  letter-spacing: clamp(0.16em, 1.2vw, 0.42em);
   text-align: center;
   text-transform: uppercase;
+  overflow-wrap: break-word;
   transition: opacity 280ms ease;
 }
 
@@ -311,6 +319,8 @@
 }
 
 .enter-button {
+  box-sizing: border-box;
+  max-width: 100%;
   border: 1px solid var(--theme-accent, #c9a84c);
   border-radius: 4px;
   background: var(--theme-accent, #c9a84c);
@@ -318,6 +328,8 @@
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-align: center;
   padding: 10px 22px;
   cursor: pointer;
 }

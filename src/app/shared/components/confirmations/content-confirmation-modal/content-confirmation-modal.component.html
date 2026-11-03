@@ -3,8 +3,8 @@
     <h5 class="text-heading font-bold text-[25px] text-center">¿Asistes a nuestra boda?</h5>
 
     <div class="mb-4 flex flex-col gap-5 mt-6 items-center justify-center">
-        <div class="">
-            <label class="inline-flex items-center space-x-2 mr-4 cursor-pointer">
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
+            <label class="inline-flex items-center space-x-2 cursor-pointer">
                 <input type="radio" name="respuesta" [value]="true"
                     (change)="willAttend = true; onConfirmChange()"
                     [checked]="willAttend === true"
