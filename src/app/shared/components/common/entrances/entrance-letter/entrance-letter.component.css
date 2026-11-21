@@ -365,6 +365,61 @@
   }
 }
 
+@media (max-width: 380px) {
+  .curtain {
+    --seal-size: 148px;
+  }
+
+  .reveal {
+    gap: 8px;
+    padding: 20px 16px 28px;
+  }
+
+  .reveal-crest {
+    width: 72px;
+    height: 72px;
+  }
+
+  .reveal-kicker {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .name {
+    font-size: 32px;
+  }
+
+  .ampersand {
+    font-size: 22px;
+  }
+
+  .reveal-date {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+  }
+
+  .reveal-note {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .panel-corner {
+    width: clamp(84px, 28vw, 140px);
+  }
+
+  .tap {
+    font-size: 10px;
+    letter-spacing: 0.24em;
+  }
+
+  .enter-button {
+    max-width: 100%;
+    font-size: 12px;
+    padding: 9px 16px;
+    text-align: center;
+  }
+}
+
 @media (min-width: 768px) {
   .curtain {
     --seal-size: 228px;

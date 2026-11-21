@@ -1224,6 +1224,65 @@ html:has(.m03-page) app-footer > footer {
   }
 }
 
+@media (max-width: 380px) {
+  .m03-section__title {
+    letter-spacing: 0.06em;
+  }
+
+  .m03-hero__intro {
+    padding: 3.6rem 1rem 2.2rem;
+  }
+
+  .m03-hero__kicker {
+    letter-spacing: 0.14em;
+  }
+
+  .m03-hero__names {
+    font-size: clamp(1.25rem, 8vw, 2.55rem);
+  }
+
+  .m03-hero__date {
+    letter-spacing: 0.12em;
+  }
+
+  .m03-hero__weekday {
+    letter-spacing: 0.14em;
+  }
+
+  .m03-dress__label {
+    font-size: clamp(1.4rem, 9.7vw, 2.35rem);
+  }
+
+  .m03-gifts__qr {
+    width: 110px;
+    height: 110px;
+  }
+
+  .m03-rsvp__title {
+    font-size: clamp(1.85rem, 13.6vw, 3.3rem);
+    letter-spacing: 0.1em;
+  }
+
+  .m03-rsvp .m03-btn {
+    min-width: 0;
+    width: 100%;
+    max-width: 16rem;
+  }
+
+  .m03-closing__thanks {
+    font-size: clamp(1.1rem, 7vw, 1.7rem);
+    letter-spacing: 0.1em;
+  }
+
+  .m03-closing__with {
+    font-size: clamp(1.4rem, 8vw, 2.15rem);
+  }
+
+  .m03-closing__names {
+    letter-spacing: 0.08em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .m03-monogram,
   .m03-hero__kicker,
